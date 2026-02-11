@@ -1,0 +1,13 @@
+@import 'tailwindcss';
+
+@theme {
+    --color-mint-500: oklch(0.72 0.11 178);
+
+    /* Branding */
+    --color-primary: #1860BF;
+    --color-secondary: #1AAFDE;
+    --color-tertiary: #1C2435;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(90deg, #1860BF 0%, #1AAFDE 100%)
+}
