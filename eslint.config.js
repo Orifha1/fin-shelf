@@ -19,5 +19,9 @@ export default defineConfig([
       ecmaVersion: 2020,
       globals: globals.browser,
     },
+    rules: {
+      'capitalized-comments': ['warn', 'always'],
+      '@typescript-eslint/no-explicit-any': 'warn',
+    },
   },
 ])
