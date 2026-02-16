@@ -4,13 +4,20 @@
 
 @theme {
 
+    /* Font/Text */
     --font-roboto: 'roboto', 'sans-serif';
-    --text-color: #1D1B20;
+    --color-primary-text: #1D1B20;
+    --color-mute: #8E8E93;
 
     /* Branding */
     --color-primary: #1860BF;
     --color-secondary: #1AAFDE;
     --color-tertiary: #1C2435;
+
+    /* UI */
+    --color-header-icon: #49454F;
+    --color-header-icon-hover: #8E8E93;
+    --color-hr: #D9D9D9;
 
     /* Gradients */
     --gradient-primary: linear-gradient(90deg, #1860BF 0%, #1AAFDE 100%)
@@ -18,5 +25,5 @@
 
 body {
     font-family: var(--font-roboto);
-    color: var(--text-color);
+    color: var(--color-primary-text);
 }

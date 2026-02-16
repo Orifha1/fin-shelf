@@ -4,12 +4,15 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 export default function Header() {
   return (
     <header>
-      <div className='flex items-center bg-red-500 h-16 pl-6 pr-6 md:justify-between '>
+      <div className='flex items-center h-16 pl-6 pr-6 sm:justify-between'>
         {/* BACK ARROW  */}
         <div className='flex justify-center items-center h-10 mr-3'>
-          <FontAwesomeIcon className='cursor-pointer text-base' icon={faArrowLeft} />
+          <FontAwesomeIcon
+            className='cursor-pointer text-header-icon text-base md:text-lg hover:text-header-icon-hover'
+            icon={faArrowLeft}
+          />
         </div>
-        <p className='text-xl'>Islamic Investment Product</p>
+        <p className='text-xl md:text-2xl truncate'>Islamic Investment Product</p>
       </div>
     </header>
   );
