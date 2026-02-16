@@ -1,6 +1,8 @@
 import productImage from '@/assets/product_image.jpg';
+import { useState } from 'react';
 
 export default function ProductItem() {
+  const [isExpanded, setIsExpanded] = useState(false);
   return (
     <div>
       <div className='w-full flex flex-col sm:flex-row sm:gap-14'>
@@ -13,30 +15,36 @@ export default function ProductItem() {
           <div className='mt-4 sm:mt-0 '>
             {/* TODO: Create a component for this. */}
             <h1 className='capitalize font-bold text-[28px]'>Islamic investment Product</h1>
-            <p className='text-mute mb-6 text-xl'>
+            <p className={`text-mute mb-6 text-xl ${isExpanded ? '' : 'line-clamp-2 sm:line-clamp-4 lg:line-clamp-5'}`}>
               Our comprehensive coverage ensures that your devices are protected against a wide range of mishaps.
             </p>
           </div>
           <hr className='text-hr' />
-          <div>
-            <div className='mt-4 mb-6'>
-              <h2 className='capitalize font-bold text-2xl'>Benefits</h2>
-              <ul className='list-disc text-mute ml-6'>
-                <li>Theft and loss recovery</li>
-                <li>Comprehensive coverage</li>
-                <li>Hardware malfunction coverage</li>
-              </ul>
+          {isExpanded && (
+            <div className='overflow-hidden transition-all duration-500 ease-in-out'>
+              <div className='mt-4 mb-6'>
+                <h2 className='capitalize font-bold text-2xl'>Benefits</h2>
+                <ul className='list-disc text-mute ml-6'>
+                  <li>Theft and loss recovery</li>
+                  <li>Comprehensive coverage</li>
+                  <li>Hardware malfunction coverage</li>
+                </ul>
+              </div>
+              <hr className='text-hr' />
+              <div className='mt-4 mb-6'>
+                <h2 className='capitalize font-bold text-2xl'>Requirement</h2>
+                <ul className='list-disc text-mute ml-6'>
+                  <li>Theft and loss recovery</li>
+                  <li>Comprehensive coverage</li>
+                  <li>Hardware malfunction coverage</li>
+                </ul>
+              </div>
             </div>
-            <hr className='text-hr' />
-            <div className='mt-4 mb-6'>
-              <h2 className='capitalize font-bold text-2xl'>Requirement</h2>
-              <ul className='list-disc text-mute ml-6'>
-                <li>Theft and loss recovery</li>
-                <li>Comprehensive coverage</li>
-                <li>Hardware malfunction coverage</li>
-              </ul>
-            </div>
-          </div>
+          )}
+
+          <button className='' onClick={() => setIsExpanded(!isExpanded)}>
+            {isExpanded ? 'Read less' : 'Read more'}
+          </button>
         </div>
       </div>
       <div>
