@@ -18,6 +18,7 @@
     --color-header-icon: #49454F;
     --color-header-icon-hover: #8E8E93;
     --color-hr: #D9D9D9;
+    --color-card-outline: #C7C7CC;
 
     /* Gradients */
     --gradient-primary: linear-gradient(90deg, #1860BF 0%, #1AAFDE 100%)

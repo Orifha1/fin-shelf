@@ -1,10 +1,27 @@
 import productImage from '@/assets/product_image.jpg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import ActiveSlider from '../../ui/ActiveSlider';
+import type { Product } from '../../types/product';
 
 export default function ProductItem() {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [products, setProducts] = useState<Product[]>([]);
+
+  useEffect(() => {
+    async function fetchProducts() {
+      try {
+        const res = await fetch('/v1/products');
+        const fetchedProducts = await res.json();
+        console.log(fetchedProducts);
+        setProducts(fetchedProducts);
+      } catch {
+        console.log('an error');
+      }
+    }
+    fetchProducts();
+  }, []);
   return (
-    <div>
+    <div className='mt-4 px-6'>
       <div className='w-full flex flex-col sm:flex-row sm:gap-14'>
         <img
           src={productImage}
@@ -15,10 +32,15 @@ export default function ProductItem() {
           <div className='mt-4 sm:mt-0 '>
             {/* TODO: Create a component for this. */}
             <h1 className='capitalize font-bold text-[28px]'>Islamic investment Product</h1>
-            <p className={`text-mute mb-6 text-xl ${isExpanded ? '' : 'line-clamp-2 sm:line-clamp-4 lg:line-clamp-5'}`}>
+            <p
+              className={`text-mute mb-6 text-xl sm:w-[80%] ${isExpanded ? '' : 'line-clamp-3 sm:line-clamp-3 lg:line-clamp-4'}`}
+            >
               Our comprehensive coverage ensures that your devices are protected against a wide range of mishaps.
             </p>
           </div>
+          {!isExpanded && (
+            <button onClick={() => setIsExpanded(!isExpanded)}>{isExpanded ? 'Read less' : 'Read more'}</button>
+          )}
           <hr className='text-hr' />
           {isExpanded && (
             <div className='overflow-hidden transition-all duration-500 ease-in-out'>
@@ -41,16 +63,15 @@ export default function ProductItem() {
               </div>
             </div>
           )}
-
-          <button className='' onClick={() => setIsExpanded(!isExpanded)}>
-            {isExpanded ? 'Read less' : 'Read more'}
-          </button>
+          {isExpanded && (
+            <button onClick={() => setIsExpanded(!isExpanded)}>{isExpanded ? 'Read less' : 'Read more'}</button>
+          )}
         </div>
       </div>
       <div>
         <div className='mt-4 mb-6'>
           <h2 className='capitalize font-bold text-2xl'>Related products</h2>
-          <p></p>
+          <ActiveSlider products={products} />
         </div>
         <hr className='text-hr block md:hidden' />
       </div>

@@ -1,11 +1,14 @@
 import ProductItem from '../features/product/ProductItem';
 import Header from './Header';
+// import ProductViewHeader from './ProductViewHeader';
 
 export default function AppLayout() {
   return (
     <>
+      {/* <ProductViewHeader /> */}
+
       <Header />
-      <main className='mt-4 px-6 w-full'>
+      <main className=' w-full'>
         <ProductItem />
       </main>
     </>
