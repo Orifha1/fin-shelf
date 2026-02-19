@@ -1,16 +1,13 @@
-import ProductItem from '../features/product/ProductItem';
 import Header from './Header';
-// import ProductViewHeader from './ProductViewHeader';
+import { Outlet } from 'react-router-dom';
 
 export default function AppLayout() {
   return (
     <>
-      {/* <ProductViewHeader /> */}
-
       <Header />
-      <main className=' w-full'>
-        <ProductItem />
-      </main>
+      <div className='overflow-x-hidden'>
+        <Outlet />
+      </div>
     </>
   );
 }

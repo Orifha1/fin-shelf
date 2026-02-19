@@ -1,44 +1,11 @@
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-interface Product {
-  id: number;
-  name: string;
-  description: string;
-  price: number;
-  imageUrl: string;
-}
+import type { Product } from '../types/product';
+
 type productListPop = {
   products: Product[];
 };
-
-// const data: Product[] = [
-//   {
-//     title: 'product Title',
-//     img: 'src/assets/product_image.jpg',
-//     price: '350',
-//   },
-//   {
-//     title: 'product Title 2',
-//     img: 'src/assets/product_image.jpg',
-//     price: '350',
-//   },
-//   {
-//     title: 'product Title 3',
-//     img: 'src/assets/product_image.jpg',
-//     price: '350',
-//   },
-//   {
-//     title: 'product Title 4',
-//     img: 'src/assets/product_image.jpg',
-//     price: '350',
-//   },
-//   {
-//     title: 'product Title 5',
-//     img: 'src/assets/product_image.jpg',
-//     price: '350',
-//   },
-// ];
 
 export default function ActiveSlider({ products }: productListPop) {
   const settings = {
